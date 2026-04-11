@@ -185,6 +185,13 @@
     if (!copy || !legalModal || !legalModalContent) return;
 
     legalModalContent.innerHTML = copy.html;
+    if (window.innerWidth <= 640) {
+      legalModalContent.style.overflowY = 'auto';
+      legalModalContent.style.webkitOverflowScrolling = 'touch';
+    } else {
+      legalModalContent.style.overflowY = 'visible';
+      legalModalContent.style.webkitOverflowScrolling = 'auto';
+    }
     legalModal.classList.add('open');
     legalModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('legal-modal-open');
@@ -197,6 +204,8 @@
 
     legalModal.classList.remove('open');
     legalModal.setAttribute('aria-hidden', 'true');
+    legalModalContent.style.overflowY = '';
+    legalModalContent.style.webkitOverflowScrolling = '';
     legalModalContent.innerHTML = '';
     document.body.classList.remove('legal-modal-open');
   }
