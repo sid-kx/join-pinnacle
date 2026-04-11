@@ -333,11 +333,19 @@
         </a>
       </div>
       <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <button type="button" class="footer-legal-trigger" data-legal="privacy">Privacy Policy</button>
+        <button type="button" class="footer-legal-trigger" data-legal="terms">Terms of Service</button>
       </div>
     </div>
   </footer>
+
+  <div class="legal-modal" id="legalModal" aria-hidden="true">
+    <div class="legal-modal-backdrop" data-legal-close></div>
+    <div class="legal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+      <button type="button" class="legal-modal-close" id="legalModalClose" aria-label="Close legal popup">×</button>
+      <div class="legal-modal-content" id="legalModalContent"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
