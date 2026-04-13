@@ -204,7 +204,7 @@
           <div class="blog-content">
             <h3 class="blog-title">5 Ways Serious Agents Build Momentum Faster</h3>
             <p class="blog-excerpt">From follow-up systems to branding consistency, these small shifts can create stronger trust, better lead flow, and long-term growth.</p>
-            <a href="#" class="blog-link">Read More →</a>
+            <button type="button" class="blog-link blog-modal-trigger" data-article="momentum">Read More →</button>
           </div>
         </article>
 
@@ -215,7 +215,7 @@
           <div class="blog-content">
             <h3 class="blog-title">Local Marketing That Helps You Stand Out</h3>
             <p class="blog-excerpt">Learn how strong local visibility, better content, and smarter online positioning can help agents attract higher-quality opportunities.</p>
-            <a href="#" class="blog-link">Read More →</a>
+            <button type="button" class="blog-link blog-modal-trigger" data-article="local-marketing">Read More →</button>
           </div>
         </article>
 
@@ -226,7 +226,7 @@
           <div class="blog-content">
             <h3 class="blog-title">Social Media vs. Your Own Website</h3>
             <p class="blog-excerpt">Both matter — but understanding how each supports your brand can help you create a more stable, professional lead-generation system.</p>
-            <a href="#" class="blog-link">Read More →</a>
+            <button type="button" class="blog-link blog-modal-trigger" data-article="social-vs-website">Read More →</button>
           </div>
         </article>
       </div>
@@ -350,6 +350,16 @@
     <div class="legal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
       <button type="button" class="legal-modal-close" id="legalModalClose" aria-label="Close legal popup">×</button>
       <div class="legal-modal-content" id="legalModalContent"></div>
+    </div>
+  </div>
+
+  <div class="legal-modal article-modal" id="articleModal" aria-hidden="true">
+    <div class="legal-modal-backdrop" data-article-close></div>
+    <div class="legal-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
+      <button type="button" class="legal-modal-close" id="articleModalClose" aria-label="Close article popup">×</button>
+      <div class="legal-modal-content" id="articleModalContent">
+        <h2 id="articleModalTitle">Article</h2>
+      </div>
     </div>
   </div>
 

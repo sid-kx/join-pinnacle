@@ -672,6 +672,11 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .blog-link:hover {
@@ -1135,6 +1140,24 @@ select.form-input { appearance: none; cursor: pointer; }
   margin-bottom: 0;
 }
 
+.article-modal .legal-modal-dialog {
+  width: min(920px, 100%);
+}
+
+.article-modal .legal-modal-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-modal .legal-modal-content h2 {
+  margin-right: 44px;
+}
+
+.article-modal .legal-modal-content strong {
+  color: #f3ead7;
+  font-weight: 600;
+}
+
 body.legal-modal-open {
   overflow: hidden;
 }
@@ -1170,6 +1193,10 @@ body.legal-modal-open {
   .legal-modal-content p {
     font-size: 0.94rem;
     line-height: 1.72;
+  }
+
+  .article-modal .legal-modal-content h2 {
+    margin-right: 34px;
   }
 }
 
