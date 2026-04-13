@@ -194,6 +194,7 @@ img { max-width: 100%; display: block; }
   margin: 0 -0.01em;
 }
 
+
 .navbar-logo {
   font-family: var(--font-heading);
   font-size: 1.5rem;
@@ -201,6 +202,19 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.15em;
   color: var(--gold-light);
 }
+
+.brand-logo-img {
+  display: block;
+  height: 35px;
+  width: auto;
+  max-width: none;
+}
+
+.navbar-brand-img,
+.footer-brand-img {
+  height: 35px;
+}
+
 @media (min-width: 1024px) { .navbar-logo { font-size: 1.875rem; } }
 
 .nav-links {
