@@ -972,8 +972,25 @@ select.form-input { appearance: none; cursor: pointer; }
 @media (min-width: 768px) {
   .footer-inner { flex-direction: row; justify-content: space-between; }
 }
-.footer-brand { text-align: center; }
-@media (min-width: 768px) { .footer-brand { text-align: left; } }
+.footer-brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .footer-brand {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 767px) {
+  .footer-brand-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .footer-logo {
   font-family: var(--font-heading);
   font-size: 1.25rem;
