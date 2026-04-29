@@ -254,31 +254,31 @@
       <form id="applyForm" class="glass-card apply-form" data-animate>
         <div class="form-grid">
           <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" required placeholder="Your full name" class="form-input" />
+            <label class="form-label" for="joinName">Full Name</label>
+            <input id="joinName" name="name" type="text" required placeholder="Your full name" class="form-input" />
           </div>
           <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" required placeholder="you@email.com" class="form-input" />
+            <label class="form-label" for="joinEmail">Email</label>
+            <input id="joinEmail" name="email" type="email" required placeholder="you@email.com" class="form-input" />
           </div>
           <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input type="tel" placeholder="(905) 609-7653" class="form-input" />
+            <label class="form-label" for="joinPhone">Phone</label>
+            <input id="joinPhone" name="phone" type="tel" placeholder="(905) 609-7653" class="form-input" />
           </div>
           <div class="form-group">
-            <label class="form-label">Years of Experience</label>
-            <select required class="form-input">
+            <label class="form-label" for="joinExperience">Years of Experience</label>
+            <select id="joinExperience" name="experience" required class="form-input">
               <option value="">Select one</option>
-              <option value="new">New Agent</option>
-              <option value="1-3">1–3 Years</option>
-              <option value="3-5">3–5 Years</option>
-              <option value="5+">5+ Years</option>
+              <option value="New Agent">New Agent</option>
+              <option value="1–3 Years">1–3 Years</option>
+              <option value="3–5 Years">3–5 Years</option>
+              <option value="5+ Years">5+ Years</option>
             </select>
           </div>
         </div>
         <div class="form-group form-full">
-          <label class="form-label">Message</label>
-          <textarea rows="4" placeholder="Tell us about yourself and what you're looking for..." class="form-input form-textarea"></textarea>
+          <label class="form-label" for="joinMessage">Message</label>
+          <textarea id="joinMessage" name="message" rows="4" placeholder="Tell us about yourself and what you're looking for..." class="form-input form-textarea"></textarea>
         </div>
         <button type="submit" class="btn-gold btn-full">Submit Your Application</button>
       </form>
@@ -366,5 +366,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script type="module" src="assets/js/join-form.js"></script>
 </body>
 </html>
