@@ -12,6 +12,39 @@
   var success = document.getElementById('formSuccess');
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var savedModalScrollY = 0;
+  var openModalCount = 0;
+
+  function lockPageScroll() {
+    openModalCount += 1;
+
+    if (openModalCount > 1) return;
+
+    savedModalScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add('modal-scroll-locked');
+    document.body.classList.add('legal-modal-open', 'modal-scroll-locked');
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + savedModalScrollY + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  }
+
+  function unlockPageScroll() {
+    openModalCount = Math.max(openModalCount - 1, 0);
+
+    if (openModalCount > 0) return;
+
+    document.documentElement.classList.remove('modal-scroll-locked');
+    document.body.classList.remove('legal-modal-open', 'modal-scroll-locked');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, savedModalScrollY);
+  }
+
   // ── Navbar scroll effect ──────────────
   if (navbar) {
     var lastScrolledState = false;
@@ -194,7 +227,7 @@
     }
     legalModal.classList.add('open');
     legalModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('legal-modal-open');
+    lockPageScroll();
 
     if (legalModalClose) legalModalClose.focus();
   }
@@ -207,7 +240,7 @@
     legalModalContent.style.overflowY = '';
     legalModalContent.style.webkitOverflowScrolling = '';
     legalModalContent.innerHTML = '';
-    document.body.classList.remove('legal-modal-open');
+    unlockPageScroll();
   }
 
   if (legalTriggers.length) {
@@ -311,7 +344,7 @@
     articleModalContent.style.webkitOverflowScrolling = 'touch';
     articleModal.classList.add('open');
     articleModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('legal-modal-open');
+    lockPageScroll();
 
     if (articleModalClose) articleModalClose.focus();
   }
@@ -324,7 +357,7 @@
     articleModalContent.style.overflowY = '';
     articleModalContent.style.webkitOverflowScrolling = '';
     articleModalContent.innerHTML = '<h2 id="articleModalTitle">Article</h2>';
-    document.body.classList.remove('legal-modal-open');
+    unlockPageScroll();
   }
 
   if (articleTriggers.length) {

@@ -1096,6 +1096,8 @@ select.form-input { appearance: none; cursor: pointer; }
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.26s ease, visibility 0.26s ease;
+  overscroll-behavior: contain;
+  touch-action: none;
 }
 
 .legal-modal.open {
@@ -1118,6 +1120,7 @@ select.form-input { appearance: none; cursor: pointer; }
   width: min(860px, 100%);
   max-height: min(84vh, 920px);
   overflow: hidden;
+  overscroll-behavior: contain;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
@@ -1159,7 +1162,10 @@ select.form-input { appearance: none; cursor: pointer; }
 .legal-modal-content {
   padding: 54px 34px 32px;
   max-height: min(84vh, 920px);
-  overflow-y: visible;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
 .legal-modal-content h2 {
@@ -1188,6 +1194,8 @@ select.form-input { appearance: none; cursor: pointer; }
 .article-modal .legal-modal-content {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
 .article-modal .legal-modal-content h2 {
@@ -1199,8 +1207,13 @@ select.form-input { appearance: none; cursor: pointer; }
   font-weight: 600;
 }
 
+html.modal-scroll-locked,
+body.modal-scroll-locked,
 body.legal-modal-open {
   overflow: hidden;
+  height: 100vh;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 @media (max-width: 640px) {
