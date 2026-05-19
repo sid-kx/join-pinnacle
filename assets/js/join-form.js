@@ -1,5 +1,3 @@
-
-
 import { supabase } from "./supabase-config.js";
 
 (() => {
@@ -54,6 +52,31 @@ import { supabase } from "./supabase-config.js";
 
       if (emailError) {
         console.error("Join email notification error:", emailError);
+      }
+
+      try {
+        const zapierPayload = {
+          name: submission.name,
+          email: submission.email,
+          phone: submission.phone,
+          experience: submission.experience,
+          message: submission.message,
+          source_site: submission.source_site,
+          lead_source: "Join Pinnacle Website",
+          type: submission.type,
+          status: submission.status,
+          submitted_at: new Date().toISOString()
+        };
+
+        const zapierResponse = await fetch("https://hooks.zapier.com/hooks/catch/27658537/4om3itm/", {
+          method: "POST",
+          body: JSON.stringify(zapierPayload)
+        });
+
+        console.log("Join Zapier payload sent:", zapierPayload);
+        console.log("Join Zapier webhook response:", zapierResponse.status);
+      } catch (zapierError) {
+        console.error("Join Zapier webhook error:", zapierError);
       }
 
       applyForm.reset();
