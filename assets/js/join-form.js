@@ -70,7 +70,7 @@ import { supabase } from "./supabase-config.js";
 
         const zapierResponse = await fetch("https://hooks.zapier.com/hooks/catch/27658537/4om3itm/", {
           method: "POST",
-          body: JSON.stringify(zapierPayload)
+          body: new URLSearchParams(zapierPayload)
         });
 
         console.log("Join Zapier payload sent:", zapierPayload);
