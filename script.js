@@ -385,4 +385,24 @@
       closeArticleModal();
     }
   });
+
+  function createZapierChatbot() {
+    if (document.querySelector('zapier-interfaces-chatbot-embed')) return;
+
+    if (!document.querySelector('script[src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"]')) {
+      var zapierScript = document.createElement('script');
+      zapierScript.async = true;
+      zapierScript.type = 'module';
+      zapierScript.src = 'https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js';
+      document.body.appendChild(zapierScript);
+    }
+
+    var chatbot = document.createElement('zapier-interfaces-chatbot-embed');
+    chatbot.setAttribute('is-popup', 'true');
+    chatbot.setAttribute('chatbot-id', 'cmpd4fjas008lxrdy5tzym0zh');
+
+    document.body.appendChild(chatbot);
+  }
+
+  createZapierChatbot();
 })();
