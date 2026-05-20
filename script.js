@@ -402,6 +402,37 @@
     chatbot.setAttribute('chatbot-id', 'cmpd4fjas008lxrdy5tzym0zh');
 
     document.body.appendChild(chatbot);
+
+    createChatbotGreeting(chatbot);
+  }
+
+  function createChatbotGreeting(chatbot) {
+    if (document.querySelector('.chatbot-greeting')) return;
+
+    var greeting = document.createElement('div');
+    greeting.className = 'chatbot-greeting';
+    greeting.setAttribute('role', 'status');
+    greeting.setAttribute('aria-live', 'polite');
+    greeting.innerHTML = `
+      <span class="chatbot-greeting-text">Welcome to Pinnacle Realty, I'm here to help you with all things real estate. How can I assist you today?</span>
+      <span class="chatbot-greeting-tail" aria-hidden="true"></span>
+    `;
+
+    document.body.appendChild(greeting);
+
+    function hideGreeting() {
+      greeting.classList.add('is-hidden');
+      window.setTimeout(function () {
+        greeting.remove();
+      }, 260);
+    }
+
+    chatbot.addEventListener('click', hideGreeting, { once: true });
+
+    greeting.addEventListener('click', function () {
+      hideGreeting();
+      chatbot.click();
+    });
   }
 
   createZapierChatbot();
