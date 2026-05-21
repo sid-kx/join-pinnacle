@@ -129,7 +129,7 @@ The site shows the broker contact details:
 | --- | --- | --- |
 | Main Website | pinnaclerealty.ca | Public brokerage website |
 | Join Website | join.pinnaclerealty.ca | Agent recruitment funnel |
-| Portal | agentsso.pinnaclerealty.ca / portal.pinnaclerealty.ca | Private dashboard after approval |
+| Portal | agentsso.pinnaclerealty.ca | Private dashboard after approval |
 | Blog | blogs.pinnaclerealty.ca | Content and articles |
 
 ## Important Workflow Note
