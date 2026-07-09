@@ -43,6 +43,13 @@ import { supabase } from "./supabase-config.js";
 
       if (error) throw error;
 
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Lead", {
+          content_name: "Pinnacle Realty Agent Application",
+          content_category: "Real Estate Recruitment"
+        });
+      }
+
       const { error: emailError, data: emailData } = await supabase.functions.invoke("send-join-email", {
         body: submission
       });
