@@ -1,9 +1,8 @@
-name: Daily Commit
+name: Random Daily Commits
 
 on:
   schedule:
     - cron: "0 18 * * *"
-      timezone: "America/Toronto"
 
   workflow_dispatch:
 
@@ -11,22 +10,27 @@ permissions:
   contents: write
 
 jobs:
-  daily-commit:
+  daily-commits:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update daily activity
+      - name: Make 5-10 random commits
         run: |
-          echo "$(date) - daily activity" >> daily-activity.txt
+          git config user.name "sid-kx"
+          git config user.email "sidkam127@gmail.com"
 
-      - name: Commit changes
-        run: |
-          git config --global user.name "sid-kx"
-          git config --global user.email "sidkam127@gmail.com"
+          COMMITS=$((5 + RANDOM % 6))
 
-          git add daily-activity.txt
-          git commit -m "Daily activity update"
+          echo "Making $COMMITS commits today"
+
+          for ((i=1; i<=COMMITS; i++))
+          do
+            echo "$(date) - update $i" >> daily-activity.txt
+            git add daily-activity.txt
+            git commit -m "Daily update $i"
+          done
+
           git push
