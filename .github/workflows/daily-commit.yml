@@ -1,0 +1,32 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: "0 18 * * *"
+      timezone: "America/Toronto"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update daily activity
+        run: |
+          echo "$(date) - daily activity" >> daily-activity.txt
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "sid-kx"
+          git config --global user.email "sidkam127@gmail.com"
+
+          git add daily-activity.txt
+          git commit -m "Daily activity update"
+          git push
